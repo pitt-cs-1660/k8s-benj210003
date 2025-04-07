@@ -75,25 +75,25 @@ spec:
         # MYSQL_ROOT_PASSWORD | MYSQL_PASSWORD
         ##
         - name: MYSQL_ROOT_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: database
-            key: root-password
-      - name: MYSQL_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: database
-            key: user-password
-        ports:
-        - containerPort: 3306
-          name: mysql
-      ##
-      # define volume mounts here, be sure to reference
-      # the PVC in your container spec
-      ##
-      volumeMounts:
-        - name: mysql-data
-          mountPath: /var/lib/mysql
+          valueFrom:
+            secretKeyRef:
+              name: database
+              key: root-password
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: database
+              key: user-password
+          ports:
+          - containerPort: 3306
+            name: mysql
+          ##
+          # define volume mounts here, be sure to reference
+          # the PVC in your container spec
+          ##
+          volumeMounts:
+            - name: mysql-data
+              mountPath: /var/lib/mysql
       volumes:
       - name: mysql-data
         persistentVolumeClaim:
