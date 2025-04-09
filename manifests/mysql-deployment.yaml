@@ -96,12 +96,12 @@ spec:
       volumes:
       - name: mysql-data
         persistentVolumeClaim:
-          claimName: wordpress-mysql-pvc
+          claimName: mysql-pv-claim
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: wordpress-mysql-pvc
+  name: mysql-pv-claim
 spec:
   accessModes:
     - ReadWriteOnce
