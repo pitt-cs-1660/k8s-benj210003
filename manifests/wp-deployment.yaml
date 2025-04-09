@@ -83,11 +83,11 @@ spec:
         ports:
         - containerPort: 80
           name: wordpress
-      ##
-      # define volume mounts here, be sure to reference
-      # the PVC in your container spec
-      ##
-      volumeMounts:
+        volumeMounts:
+        ##
+        # define volume mounts here, be sure to reference
+        # the PVC in your container spec
+        ##
         - name: wp-data
           mountPath: /var/www/html
       volumes:
